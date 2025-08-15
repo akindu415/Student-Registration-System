@@ -26,7 +26,6 @@ function StudentGet() {
   // Fetch students on load
   useEffect(() => {
     fetchStudents();
-    // eslint-disable-next-line
   }, []);
 
   const fetchStudents = async () => {
@@ -102,10 +101,16 @@ function StudentGet() {
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <button onClick={goToRegister}>Register Student</button>
-      <h3>Student List</h3>
+      
+      
+      <h2>Student List</h2>
 
-      <div style={{ marginBottom: "20px" }}>
+      <div style={{
+    display: "flex",
+    justifyContent: "center",
+  }}> 
+
+      <div style={{ marginBottom: "20px" }}> 
         <label style={{ marginRight: "10px" }}>Telephone</label>
         <input
           type="text"
@@ -132,6 +137,7 @@ function StudentGet() {
           Search
         </button>
       </div>
+      </div> 
 
       <table
         border="1"
@@ -203,8 +209,25 @@ function StudentGet() {
                     />
                   </td>
                   <td>
-                    <button onClick={() => handleEditSave(s.id)}>OK</button>
-                    <button onClick={handleEditCancel}>Cancel</button>
+                    {/* OK button */}
+                    <button onClick={() => handleEditSave(s.id)} style={{ background: "#1d8cf8",
+            color: "#fff",
+            padding: "6px 12px",
+            border: "none",
+            borderRadius: "5px"
+          }}>
+                      OK
+                    </button>
+
+
+                    <button onClick={handleEditCancel} style={{ background: "#f44336",
+            color: "#fff",
+            padding: "6px 12px",
+            border: "none",
+            borderRadius: "5px"
+          }}>
+                      Cancel
+                    </button>
                   </td>
                 </tr>
               ) : (
@@ -253,7 +276,10 @@ function StudentGet() {
             </tr>
           )}
         </tbody>
-      </table>
+      </table><br/>
+      <button onClick={goToRegister} style={{ backgroundColor: "blue", color: "white", padding: "8px 16px", border: "none", borderRadius: "4px" }}>
+        Register Student
+        </button>
     </div>
   );
 }
